@@ -1,5 +1,6 @@
 <template>
     <div>
+        <GoBack />
         <section>
             <h2>{{ destination.name }}</h2>
             <img :src="require(`@/assets/${destination.image}`)" alt="destination.name">
@@ -34,7 +35,11 @@
 
 <script>
 import store from "@/store.js";
+import GoBack from "@/components/GoBack";
 export default {
+    components: {
+        GoBack
+    },
     data() {
         return {
             // slug:this.$route.params.slug
