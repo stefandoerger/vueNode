@@ -4,7 +4,9 @@
 
         <TheNavigation />
         <!-- IMPORTANT :key="$route.path" triggers a relod of the same components is used. Otherwise, in that case it does not change -->
-        <router-view :key="$route.path" />
+        <transition name="fade">
+            <router-view :key="$route.path" />
+        </transition>
 
     </div>
   </div>
@@ -29,4 +31,15 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
 </style>
