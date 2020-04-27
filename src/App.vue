@@ -4,7 +4,7 @@
 
         <TheNavigation />
         <!-- IMPORTANT :key="$route.path" triggers a relod of the same components is used. Otherwise, in that case it does not change -->
-        <transition name="fade">
+        <transition name="fade" mode="out-in">
             <router-view :key="$route.path" />
         </transition>
 

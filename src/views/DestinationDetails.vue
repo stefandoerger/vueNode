@@ -1,7 +1,7 @@
 <template>
     <div>
         <GoBack />
-        <section>
+        <section class="experiences">
             <h2>{{ destination.name }}</h2>
             <img :src="require(`@/assets/${destination.image}`)" alt="destination.name">
             <p>{{destination.description}}</p>
@@ -10,14 +10,15 @@
             <h2>
                 Top Experiences in {{ destination.name }}
             </h2>
-            <div class="cards">
+            <div class="cards" id="experience">
                 <div v-for="experience in destination.experiences"
                 :key="experience.slug"
                 class="card">
                     <router-link
                     :to="{
                         name: 'experienceDetails',
-                        params: { experienceSlug: experience.slug}
+                        params: { experienceSlug: experience.slug},
+                        hash: '#experience'
                     }">
                         <img :src="require(`@/assets/${experience.image}`)"
                         alt="experience.name">
@@ -64,3 +65,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.experiences {
+  padding: 40px 0;
+}
+
+</style>
